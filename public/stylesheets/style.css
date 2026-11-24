@@ -1,0 +1,126 @@
+:root {
+  --cor-primaria: #8b1e1e;
+  --cor-primaria-escura: #6b1414;
+  --cor-fundo: #f5f5f7;
+  --cor-borda: #e0e0e5;
+  --cor-texto: #222;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cor-fundo);
+  color: var(--cor-texto);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+h1 {
+  color: var(--cor-primaria);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  border-bottom: 3px solid var(--cor-primaria);
+  padding-bottom: 8px;
+}
+
+h2 {
+  margin-top: 28px;
+  font-size: 20px;
+}
+
+.form-cadastro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 4px;
+}
+
+label {
+  color: var(--cor-primaria);
+  font-weight: bold;
+  font-size: 14px;
+}
+
+input {
+  height: 32px;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--cor-primaria);
+  box-shadow: 0 0 0 3px rgba(139, 30, 30, 0.15);
+}
+
+input[type="text"][name="busca"] {
+  width: 280px;
+}
+
+button {
+  height: 32px;
+  padding: 0 14px;
+  border: none;
+  border-radius: 4px;
+  background: var(--cor-primaria);
+  color: #fff;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: var(--cor-primaria-escura);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+  background: #fff;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+th, td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--cor-borda);
+}
+
+th {
+  background: var(--cor-primaria);
+  color: #fff;
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: #fdf3f3;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+td a {
+  color: var(--cor-primaria);
+  font-weight: bold;
+  text-decoration: none;
+  margin-right: 6px;
+}
+
+td a:hover {
+  text-decoration: underline;
+}

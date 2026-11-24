@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    
+  </head>
+  <body>
+    <main>
+      <h1>TABELA WAR SELECTION</h1>
+
+      <% if (erro) { %><p class="mensagem erro"><%= erro %></p><% } %>
+      <% if (ok) { %><p class="mensagem ok"><%= ok %></p><% } %>
+
+      <h2>Nova tropa</h2>
+      <form action="/itens" method="POST" class="form-cadastro">
+        <label>Nome
+          <input type="text" name="nome" maxlength="50" required>
+        </label>
+        <label>País
+          <input type="text" name="pais" maxlength="60" required>
+        </label>
+        <label>Dano
+          <input type="number" name="dano" min="0" required>
+        </label>
+        <label>Vida
+          <input type="number" name="vida" min="0" required>
+        </label>
+        <label>Era
+          <input type="text" name="era" maxlength="60" required>
+        </label>
+        <button type="submit">Cadastrar</button>
+      </form>
+
+      <h2>Tropas cadastradas</h2>
+      <form action="/" method="GET" class="form-busca">
+        <input type="text" name="busca" placeholder="Pesquisar por nome, país ou era" value="<%= busca %>">
+        <button type="submit">Pesquisar</button>
+        <% if (busca) { %><a href="/">Limpar</a><% } %>
+      </form>
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>País</th>
+            <th>Dano</th>
+            <th>Vida</th>
+            <th>Era</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (tropas.length === 0) { %>
+            <tr><td colspan="7">Nenhuma tropa cadastrada.</td></tr>
+          <% } %>
+          <% tropas.forEach(function (t) { %>
+            <tr>
+              <td><%= t.id %></td>
+              <td><%= t.nome %></td>
+              <td><%= t.pais %></td>
+              <td><%= t.dano %></td>
+              <td><%= t.vida %></td>
+              <td><%= t.era %></td>
+              <td>
+                <a href="/itens/<%= t.id %>/editar">Alterar</a>
+                <form action="/itens/<%= t.id %>/excluir" method="POST" style="display:inline"
+                      onsubmit="return confirm('Tem certeza que deseja excluir esta tropa?');">
+                  <button type="submit">Excluir</button>
+                </form>
+              </td>
+            </tr>
+          <% }); %>
+        </tbody>
+      </table>
+    </main>
+  </body>
+</html>

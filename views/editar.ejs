@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <title><%= title %></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+  </head>
+  <body>
+    <main>
+      <h1><%= title %></h1>
+
+      <% if (erro) { %><p class="mensagem erro"><%= erro %></p><% } %>
+
+      <form action="/itens/<%= tropa.id %>/editar" method="POST">
+        <label>Nome
+          <input type="text" name="nome" maxlength="50" value="<%= tropa.nome %>" required>
+        </label>
+        <label>País
+          <input type="text" name="pais" maxlength="60" value="<%= tropa.pais %>" required>
+        </label>
+        <label>Dano
+          <input type="number" name="dano" min="0" value="<%= tropa.dano %>" required>
+        </label>
+        <label>Vida
+          <input type="number" name="vida" min="0" value="<%= tropa.vida %>" required>
+        </label>
+        <label>Era
+          <input type="text" name="era" maxlength="60" value="<%= tropa.era %>" required>
+        </label>
+        <button type="submit">Salvar alterações</button>
+        <a href="/">Cancelar</a>
+      </form>
+    </main>
+  </body>
+</html>
